@@ -1,0 +1,14 @@
+* {
+    margin: 10;
+    padding: 50;
+}
+
+h1 {
+    color: green;
+    font-size: 36px;
+}
+
+#inha {
+    color: #f00;
+    font-size: 20px;
+}

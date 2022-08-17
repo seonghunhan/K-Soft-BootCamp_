@@ -1,0 +1,6 @@
+pandas
+- apply 함수
+- set으로 index바꿔주는거
+- datetime 타입다루는거
+- 10년주기 합
+

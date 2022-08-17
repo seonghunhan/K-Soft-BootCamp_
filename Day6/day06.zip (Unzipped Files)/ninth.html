@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>객체지향프로그래밍</title>
+</head>
+<body>
+    <script>
+        class Square{
+            #length  // private member variable
+            static #cnt = 0; // static variable
+            static get counter(){ // static function, Square.counter access
+                return Square.#cnt;
+            }
+
+            constructor(length){
+                if(length <= 0){
+                    throw '길이는 0이하일 수가 없습니다';
+                }
+                this.#length = length;
+                Square.#cnt = Square.#cnt + 1;
+            }
+            set length(value){
+                if(value<=0){
+                    throw '길이는 0이하일 수가 없습니다';
+                }
+                this.#length = value;
+            }
+            get length(){ return this.#length; }
+
+            get perimeter(){ return this.#length * 4; }
+            get area(){ return this.#length * this.#length; }
+        }
+        const s1 = new Square(5);
+        const s2 = new Square(10);
+        const s3 = new Square(15);
+        console.log(`생성된 정사각형의 개수는 ${Square.counter}입니다`)
+        //s1.setLength(10);
+        s1.length = 10;
+        console.log(`한 변의 길이는 ${s1.length}입니다`)
+        console.log(`정사각형의 둘레 : ${s1.perimeter}`)
+        console.log(`정사각형의 넓이 : ${s1.area}`)
+    </script>    
+</body>
+</html>

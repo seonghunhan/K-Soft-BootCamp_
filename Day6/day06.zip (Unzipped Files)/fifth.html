@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>객체지향프로그래밍</title>
+</head>
+<body>
+    <script>
+        class Square{
+            constructor(l){
+                if(l <= 0){
+                    throw '길이는 0이하일 수가 없습니다';
+                }
+                this.l = l;
+            }
+            getPerimeter(){ return this.l * 4; }
+            getArea(){ return this.l * this.l; }
+        }
+        const s1 = new Square(55);
+        // 생성자에서 음수 입력을 막을 수 있지만 객체 생성 후 대입은 못 막는다
+        // 멤버변수 l(길이)을 캡슐화 시킬 필요가 있다
+        s1.l = -9; 
+        console.log(`정사각형의 둘레 : ${s1.getPerimeter()}`)
+        console.log(`정사각형의 넓이 : ${s1.getArea()}`)
+    </script>    
+</body>
+</html>

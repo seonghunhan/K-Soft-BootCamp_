@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="inha.css" />
+    <title>객체지향프로그래밍</title>
+</head>
+<body>
+    <div id="inha"> 
+        K Software BootCamp
+        <ol>
+            <li>C++</li>
+            <li>Python</li>
+            <li>React</li>
+        </ol>
+        <h1>김인하</h1>
+    </div>
+    <script>
+        class Square{
+            #length  // private member variable
+            constructor(length){
+                if(length <= 0){
+                    throw '길이는 0이하일 수가 없습니다';
+                }
+                this.#length = length;
+            }
+            set length(value){
+                if(value<=0){
+                    throw '길이는 0이하일 수가 없습니다';
+                }
+                this.#length = value;
+            }
+            get length(){ return this.#length; }
+
+            get perimeter(){ return this.#length * 4; }
+            get area(){ return this.#length * this.#length; }
+        }
+        const s1 = new Square(5);
+        //s1.setLength(10);
+        s1.length = 10;
+        console.log(`한 변의 길이는 ${s1.length}입니다`)
+        console.log(`정사각형의 둘레 : ${s1.perimeter}`)
+        console.log(`정사각형의 넓이 : ${s1.area}`)
+    </script>    
+</body>
+</html>

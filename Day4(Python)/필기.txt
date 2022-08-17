@@ -1,0 +1,47 @@
+가상환경 접속
+- 터미널에 conda activate test
+( 가상환경 test라고 만든곳에 접속함 현재 python 3.7버전이랑 pandas다운함
+( 왼쪽 밑에 파이썬3.7이라고 설정하고(test) 실행하기전에 conda activate test하고 런하면 실행됨)
+
+
+가상환경 만들기(터미널기준)(vsc 터미널도 가능)
+ conda create -n test python=3.5 (가상환경 test라는 이름으로 파이썬 3.5버전 만든것)
+conda env list (리스트 보기)
+activate 이름 (활성화)
+deactivate (비활성화)
+
+
+
+conda env export > environment.yml (추출하기)
+conda env create -f environment.yml (추출한거 다시 임폴트)
+conda env create -n tmp -f environment.yml(조교님 추천 임폴트방법)
+(이거는 가상환경 tmp라는이름으로 만들면서 yml까지 바로 적용시킨것)
+
+conda activate test2 #확인
+
+---------------------------------------------------------------------------**********************
+너 vsc에서 확장팩으로 주피터깔고 key어쩌고도 경고창뜨니깐 vsc에서 즉석으로 했는데 그러다가는
+외부모듈 색상 안뜨는 좆같은 경우가 발생해
+그니까 terminal에서 install로 주피터랑 주피터 키어쩌고 밑에처럼
+conda activate [가상환경 이름]
+pip install jupyter
+pip install ipykernel
+
+-------------------------------------
+여기서 모듈설치해야지 vsc에서 모듈,함수색깔 일반적으로 나옴
+conda list 모듈설치된거 확인 
+conda remove numpy -> numpy모듈 삭제 (해당 가상환경을 실행하고 해야함)
+---------------------------
+&&는 논리연산자
+&는 비트연산자
+
+다학년 연구프로젝트 산공과사에 전화해서 인정해주나 보기
+전공별로 인정해주는경우도 있다고 함
+2,4
+
+5      필요한것 : 별4개
+4      필요한것 : 별3개
+3      필요한것 : 별2개
+2      필요한것 : 공백8개 별2개
+1      필요한것 : 공백10개 별1개
+

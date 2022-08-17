@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>객체지향프로그래밍</title>
+</head>
+<body>
+    <script>
+        class Square{
+            #length  // private member variable
+            constructor(length){
+                if(length <= 0){
+                    throw '길이는 0이하일 수가 없습니다';
+                }
+                this.#length = length;
+            }
+            getPerimeter(){ return this.#length * 4; }
+            getArea(){ return this.#length * this.#length; }
+        }
+        const s1 = new Square(5);
+        // 멤버변수 lenght를 private으로 캡슐화
+        s1.length = -10; // no effect, 직접 access 불가
+        //s1.#length = -10; // exception 발생
+        console.log(`정사각형의 둘레 : ${s1.getPerimeter()}`)
+        console.log(`정사각형의 넓이 : ${s1.getArea()}`)
+    </script>    
+</body>
+</html>

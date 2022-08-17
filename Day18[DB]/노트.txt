@@ -1,0 +1,63 @@
+방법1 sql shell -> 터미널시작
+방법2 cmd 터미널 -> psql -U postgres 엔터 
+
+방법3 관리창 시작
+시작 -> pgAdmi4 -> Servers -> postre => database오른쪽클릭 create
+
+환경설정
+
+시스템속성 -> 고급 -> 환경변수 -> 시스템변수 -> Path에서 편집 -> 아래주소 추가하기
+C:\Program Files\PostgreSQL\14\bin
+C:\Program Files\PostgreSQL\14\pgAdmin 4
+-> 환경변수를 여기다가 넣으면 cmd창에서 path 포스트그레 명령어를 넣는거란다
+
+이거 플러스
+
+pgAdmin -> servers -> configure 어쩌고 -> 카테고리Paths -> Binary paths -> 14 
+-> 폴더 선택 -> C:\Program Files\PostgreSQL\14\bin 여기선택
+
+위에꺼 하면 테이블 오른쪽 restore가능함 -> 이걸로 tar압축파일 선택하기
+(day16/dbclass/SQL 활용 프로그래밍 챕터4 SQL기본 17page참고!)
+
+
+터미널에서 tar넣는방법은 강의자료 참고
+\l -> db보기
+\q -> psql인가 그거 나가기 방법
+
+-------------------------------------------------------------------------------------------
+
+SELECT 열이름(*) FROM 테이블이름 WHERE 조건
+
+포스트그레에서는 한번에 한개의 DB만 사용가능
+\c employees; -> employees db 사용하겠다.
+
+
+스키마SCHEMA란 데이터베이스에 작성되는 테이블이나 함수 등의 개체를 그룹화하는 것
+테이블은 스키마 위에서 작성함
+스키마를 지정하지 않고 하면 public schema위에서 작성됨
+
+순서는 SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY 순서임
+
+서브쿼리는 예를 들면 웨얼에 셀렉트하고 또 컬럼 테이블 요런거 하는거임(쿼리가 2개이상)
+
+
+sql문 group by만 가져가자!
+ex) SELECT userID, sum(amount) FROM buytbl GROUP BY userid
+이러면 userid가 중복인게 있을건데 걔네들을 그룹화 시키는거임 그리고
+그룹화된 userID랑 amount의 합계만 출력시키는 것!
+보통 AVF(), MIN(), COUNT(), MAX()요런거 사용함
+group by로 묶을때는 조건을 having으로 한다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+sql문 join!!!
+- 대개의 업무에서 조인은 INNER JOIN 사용
+- JOIN만 써도 INNER JOIN으로 인식
+
+SELECT <열 목록>
+FROM <첫 번째 테일블>
+	INNER JOIN <두 번쨰 테이블>
+	ON <조인될 조건>
+WHERE 검색조건
+
+만약! 1번째 테이블에서 2번 테이블 타고 3번테이블의 데이터를 가져오려면!
+join 2개 써서 하는듯??
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <link rel="stylesheet" type="text/css" href="inha.css" /> -->
+    <title>리액트프로그래밍</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+
+<!-- 클래스형태 -->
+<!-- <body>  
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component{
+            render(){
+                return <div>
+                    <h2>{this.props.name} 이리와</h2>
+                    <img src = {this.props.imgUrl} />
+                </div>
+          }
+        }
+        const container = document.getElementById('root');
+        ReactDOM.render(<App name="해피" imgUrl="https://placedog.net/400/200" />, container);
+    </script>
+</body> -->
+
+<!-- 함수형태 -->
+<body>  
+    <div id="root"></div>
+    <script type="text/babel">
+        function App(props){
+            return <div>
+                <h2>{props.name} 이리와</h2>
+                <img src = {props.imgUrl} />
+            </div>
+          }
+        const container = document.getElementById('root');
+        ReactDOM.render(<App name="해피" imgUrl="https://placedog.net/400/200" />, container);
+    </script>
+</body>
+</html>
