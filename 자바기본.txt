@@ -32,3 +32,8 @@ int b = 5;
 double c = 0;
 
 c = (double) a / b;  ->괄호가 캐스팅
+
+-------------------------------------
+Scanner 클래스의 nextLine과 next가 있는데
+String str1 = scanner.nextLine();
+하면 입력되는 그 라인을 str1에 반환하는 것! (next는 다음공백까지, 그래서 nextLine이 더 많이 사용)
