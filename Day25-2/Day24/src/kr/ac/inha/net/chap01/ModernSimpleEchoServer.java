@@ -1,0 +1,48 @@
+package kr.ac.inha.net.chap01;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+
+public class ModernSimpleEchoServer {
+        public static void main(String[] args) {
+            System.out.println("에코 서버!");
+            try (ServerSocket serverSocket = new ServerSocket(6000)){
+                System.out.println("연결 대기중.....");
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("클라이언트 연결됨!");
+                try(
+                        BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                        // 클라이언트로 부터 받은 데이터를 저장하는 버퍼
+                        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+                        // 클라이언트한테 보낼 데이터를 저장할 버퍼
+                ){
+                    Stream.generate(()-> {
+                        try {
+                            return br.readLine();
+                        } catch (IOException e) {
+                            // throw new RuntimeException(e);
+                            return null;
+                        }
+                    }).map(i -> {
+                        System.out.println("클라이언트가 보낸 메세지 : " + i);
+                        out.println(i); // 클라이언트 한테 전송 (메아리)
+                        return i;
+                    }).allMatch(i -> i != null);
+                }catch (IOException ex) {
+
+                }
+            } catch (IOException ex) {
+
+            } catch (IllegalArgumentException ex){
+                System.out.println("포트 번호의 범위는 0에서 65535사이 입니다 (2byte)");
+            }
+            System.out.println("에코 서버 종료!");
+        }
+    }
+
