@@ -24,7 +24,8 @@ final은 더이상 상속그런거 없이 여기서 최종적으로 정의한다
 ---------------------------------------------------------------------
 -throw는 try,catch와 독립적으로 예외인 상황이 펼쳐졌을때 이 메서드를 호출한곳으로 던지는것!
 -try(){}에서 소괄호()안에있는 구문들은 try구문 끝나면 메모리 비워지는 옵션을 사용하고 싶을때 사용
-
+- catch구문에 에러타입은 try구문에서 무조건 발생할 수 있어야함! 만약 throw로 try를 묶었다면 최종적으로
+던짓곳에서 그 에러가 발생하여야 한다!
 
 ---------------------------------------
 int a = 8;
@@ -37,3 +38,29 @@ c = (double) a / b;  ->괄호가 캐스팅
 Scanner 클래스의 nextLine과 next가 있는데
 String str1 = scanner.nextLine();
 하면 입력되는 그 라인을 str1에 반환하는 것! (next는 다음공백까지, 그래서 nextLine이 더 많이 사용)
+
+------------------------------------------네이밍
+파일,클래스이름 public class HelloWorld (파스칼 표기법)
+변수이름 int englishScore (캬멜 표기법)
+메소드 이름 public int getEnglishScroe() (캬멜 표기법)
+상수 이름 final int MAX_ENGLISH_SCORE = 100 ;
+
+1) 메소드명
+
+메소드의 prefix로 다음 규칙을 따르고 있다.
+
+C → createXXX createInfo
+
+R → retrieveXXX retrieveInfoList
+
+U → updateXXX updateInfo
+
+D → deleteXXX deleteInfo
+---------------------------------------------------
+Provider
+R(Read) 와 관련된 곳이다. DB에서 select 해서 얻어온 값을 가공해서 뱉어준다.
+
+Service
+CUD(Create, Update, Delete) 와 관련된 곳이다. CUD에서 R이 필요한 경우가 있는데, 
+그럴 때는 Provider에 구성되어 있는 것을 Service에서 사용하면 된다.
+
